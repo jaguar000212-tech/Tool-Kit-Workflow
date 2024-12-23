@@ -17,12 +17,13 @@
     <fragment
         android:id="@+id/navhost"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        app:navGraph="@navigation/navigation_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/inc_appbar"
         android:layout_above="@id/inc_navbar"
-        android:layout_centerVertical="true"/>
+        android:layout_below="@id/inc_appbar"
+        android:layout_centerVertical="true"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/navigation_main" />
 
     <include
         android:id="@+id/inc_navbar"
