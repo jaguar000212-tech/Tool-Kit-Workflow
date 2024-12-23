@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_all_tools"
+        android:icon="@drawable/ic_all_tools"
+        android:title="All Tools" />
+    <item
+        android:id="@+id/navigation_fav_tools"
+        android:icon="@drawable/ic_fav_tools"
+        android:title="Favourite Tools" />
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="Settings" />
+</menu>
