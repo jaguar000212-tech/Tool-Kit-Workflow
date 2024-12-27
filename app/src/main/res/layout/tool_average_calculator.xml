@@ -7,17 +7,29 @@
     android:layout_height="match_parent"
     tools:context=".tools.AverageCalculator">
 
-    <EditText
-        android:id="@+id/inputText"
-        android:layout_width="wrap_content"
+    <include
+        layout="@layout/bar_top"
+        android:id="@+id/inc_appbar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:digits="0123456789.,"
-        android:ems="10"
-        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/inputText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="32dp"
+        android:digits="0123456789.,"
+        android:ems="10"
+        android:hint="23,24,25,26..."
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inc_appbar" />
 
     <EditText
         android:id="@+id/outputText"
@@ -26,10 +38,10 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:editable="false"
         android:ems="10"
         android:enabled="false"
         android:gravity="start|top"
+        android:hint="Result: "
         android:inputType="textMultiLine"
         android:lines="9"
         app:layout_constraintEnd_toEndOf="parent"
