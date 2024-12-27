@@ -1,10 +1,12 @@
 package com.jaguar.toolkit.objects;
 
-public class Tool<T> {
-    String name;
-    String description;
-    int icon;
-    Class<T> activity;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Tool<T extends AppCompatActivity> {
+    final private String name;
+    final private String description;
+    final private int icon;
+    final private Class<T> activity;
 
     public Tool(String name, String description, int icon, Class<T> activity) {
         this.name = name;

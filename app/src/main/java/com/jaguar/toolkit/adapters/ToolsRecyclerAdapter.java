@@ -1,9 +1,7 @@
 package com.jaguar.toolkit.adapters;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -21,11 +19,9 @@ import com.jaguar.toolkit.objects.Tool;
 import java.util.List;
 
 public class ToolsRecyclerAdapter extends RecyclerView.Adapter<ToolsRecyclerAdapter.ViewHolder> {
-    Context context;
-    List<Tool> toolsList;
+    private List<Tool> toolsList;
 
     public ToolsRecyclerAdapter(Context context, List<Tool> toolsList) {
-        this.context = context;
         this.toolsList = toolsList;
     }
 
