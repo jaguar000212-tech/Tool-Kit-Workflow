@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,10 +40,11 @@ public class AllTools extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView ToolsView = view.findViewById(R.id.allToolsView);
         adapter = new ToolsRecyclerAdapter(getContext(), toolList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         ToolsView.setLayoutManager(layoutManager);
         ToolsView.setItemAnimator(new DefaultItemAnimator());
         ToolsView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayout.VERTICAL));
+        ToolsView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayout.HORIZONTAL));
         ToolsView.setAdapter(adapter);
     }
 }

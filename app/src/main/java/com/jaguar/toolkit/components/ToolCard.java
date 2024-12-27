@@ -3,7 +3,9 @@ package com.jaguar.toolkit.components;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,11 +24,14 @@ public class ToolCard {
     public ToolCard(Context context) {
         this.context = context;
         card = new CardView(context);
+        card.setRadius(20);
+        card.setCardElevation(10);
+        LinearLayout.LayoutParams cardViewParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        card.setLayoutParams(cardViewParams);
+        ViewGroup.MarginLayoutParams cardViewMarginParams = (ViewGroup.MarginLayoutParams) card.getLayoutParams();
+        cardViewMarginParams.setMargins(20, 20, 20, 20);
+        card.requestLayout();
         view = LayoutInflater.from(context).inflate(R.layout.card_tool, null);
-        view.setOnLongClickListener(v -> {
-            Toast.makeText(context, description, Toast.LENGTH_SHORT).show();
-            return true;
-        });
         card.addView(view);
     }
 
@@ -45,11 +50,6 @@ public class ToolCard {
     public ToolCard setIcon(int iconID) {
         ImageButton iconView = view.findViewById(R.id.tool_btn);
         iconView.setImageResource(iconID);
-        return this;
-    }
-
-    public ToolCard setOnClickListener(View.OnClickListener listener) {
-        view.setOnClickListener(listener);
         return this;
     }
 

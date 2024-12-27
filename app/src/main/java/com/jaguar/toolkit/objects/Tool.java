@@ -1,14 +1,16 @@
 package com.jaguar.toolkit.objects;
 
-public class Tool {
+public class Tool<T> {
     String name;
     String description;
     int icon;
+    Class<T> activity;
 
-    public Tool(String name, String description, int icon) {
+    public Tool(String name, String description, int icon, Class<T> activity) {
         this.name = name;
         this.description = description;
         this.icon = icon;
+        this.activity = activity;
     }
 
     public String getName() {
@@ -23,15 +25,9 @@ public class Tool {
         return icon;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Class<T> getActivity() {
+        return activity;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
-    public void setIcon(int icon) {
-        this.icon = icon;
-    }
 }

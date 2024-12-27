@@ -2,6 +2,7 @@ package com.jaguar.toolkit.adapters;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jaguar.toolkit.R;
+import com.jaguar.toolkit.components.ToolCard;
 import com.jaguar.toolkit.objects.Tool;
 
 import java.util.List;
@@ -29,8 +32,9 @@ public class ToolsRecyclerAdapter extends RecyclerView.Adapter<ToolsRecyclerAdap
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View ToolView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_tool, parent, false);
-        return new ViewHolder(ToolView);
+        ToolCard toolCard = new ToolCard(parent.getContext());
+        CardView ToolCard = toolCard.build();
+        return new ViewHolder(ToolCard);
     }
 
     @Override
@@ -56,8 +60,8 @@ public class ToolsRecyclerAdapter extends RecyclerView.Adapter<ToolsRecyclerAdap
             toolName = itemView.findViewById(R.id.tool_name);
             toolBtn = itemView.findViewById(R.id.tool_btn);
             toolBtn.setOnClickListener(v -> {
-                AlertDialog.Builder builder = new AlertDialog.Builder(itemView.getContext());
-                builder.setTitle(tool.getName()).setMessage("Selected the tool!").show();
+                Intent intent = new Intent(itemView.getContext(), tool.getActivity());
+                itemView.getContext().startActivity(intent);
             });
             toolBtn.setOnLongClickListener(v -> {
                 Toast.makeText(itemView.getContext(), tool.getDescription(), Toast.LENGTH_SHORT).show();
